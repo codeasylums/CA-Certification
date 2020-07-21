@@ -3,7 +3,7 @@ const router = express.Router();
 const app = express();
 const mongoose = require('mongoose')
 
-const Register = require('../models/userModel')
+const loginModel = require('../models/loginModel')
 router.use(express.static("public"));
 
 if (typeof localStorage === "undefined" || localStorage === null) {
@@ -17,7 +17,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 router.post('/', (req, res, next) => {
     var userName = req.body.userName;
     var password = req.body.password
-    Register.findOne({ userName: userName, password: password }, function(err, user) {
+    loginModel.findOne({ userName: userName, password: password }, function(err, user) {
         if (err) {
             console.log('Error')
             return res.status(500).redirect('/')
@@ -38,10 +38,17 @@ router.post('/', (req, res, next) => {
     })
 
 })
-const userid = '5f12fe406b7789b7581165d1'
+const userid = '5f159f594efd4b239416ac89'
+
+router.get('/details',async(req,res)=>{
+    const results=await loginModel.find({_id:userid});
+    console.log(results[0].password)
+    return res.send({arrList:results})
+})
+
 
 router.get('/showSkill',async(req,res)=>{
-    const results=await Register.find({_id:userid});
+    const results=await loginModel.find({_id:userid});
     console.log(results[0].password)
     return res.send({arrList:results})
 })

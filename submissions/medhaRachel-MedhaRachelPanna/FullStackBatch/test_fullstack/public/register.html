@@ -32,7 +32,7 @@
 <body>
     <br><br>
     <center>
-        <h1>Tech-PROFILE</h1>
+        <h1>Tech Profile</h1>
     </center>
     <br><br><br>
     <center>
@@ -56,23 +56,20 @@
                                         start your journey with us.</p>
                                 </i>
                                 <br><br>
-                            <form class="register-form" method="POST" action="/reg">
+                            <form class="register-form" method="POST" action="/login/register">
 
                                 <div class="row justify-content-md-center">
                                     <div class="col-4">
-                                        <input type="text" class="form-control"  name=fName
-                                            placeholder="first_Name">
+                                        <input type="text" class="form-control"  name="name"vplaceholder="Name">
                                     </div>
                                     <div class="col-4">
-                                        <input type="text" class="form-control"  name=lName
-                                            placeholder="last_Name">
+                                        <input type="text" class="form-control"  name="phoneNumber" placeholder="Phone Number">
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row justify-content-md-center">
                                     <div class="col-8">
-                                        <input type="text" class="form-control"  name=userName
-                                            placeholder="username">
+                                        <input type="text" class="form-control"  name="userName" placeholder="Username">
                                     </div>
 
                                 </div>
@@ -80,16 +77,14 @@
                                 <br>
                                 <div class="row justify-content-md-center">
                                     <div class="col-8">
-                                        <input type="text" class="form-control"  name="email"
-                                            placeholder="emailAddress@gmail.com">
+                                        <input type="email" class="form-control"  name="email" placeholder="emailAddress@gmail.com">
                                     </div>
 
                                 </div>
                                 <br>
                                 <div class="row justify-content-md-center">
                                     <div class="col-8">
-                                        <input type="password" class="form-control"  name=password
-                                            placeholder="password">
+                                        <input type="password" class="form-control"  name="password" placeholder="Password">
                                     </div>
 
                                 </div>
@@ -119,6 +114,7 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
         <script src="js/login.js"></script> 
+        <script src="./highChart.js"></script>
 </body>
 
 </html>

@@ -13,9 +13,9 @@
   <title>Profile</title>
   <style type="text/css">
     .e {
-      border-radius: 20%;
-      max-width: 100%;
-      max-height: 100%
+      border-radius: 50%;
+      max-width: 80%;
+      max-height: 40%;
     }
 
     body {
@@ -88,7 +88,7 @@
 
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">TECH_Profile</a>
+    <a class="navbar-brand" href="home.html">TECH_Profile</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -97,22 +97,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" onclick="showHome()">Home  </a>
+          <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="update.html">Update</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" onclick="showSkill()">View</a>
+          <a class="nav-link" onclick="showSkill();return false;">View</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Log Out</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Switch
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/coding">Coding</a>
+            <a class="dropdown-item" href="/development">Development</a>
+          </div>
         </li>
 
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" id="search" name="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" id="naviTo" onclick='DataSearchCoding();return false;'>Search</button>
       </form>
     </div>
   </nav>
@@ -127,66 +133,21 @@
       <div class="row justify-content-md-center">
         <div class="col-2" style="background-color:#c2d6d6" id="first">
           <div class="row justify-content-md-center">
-            <center><img src="/images/iconB.png" class="e" alt="Cinque Terre">
-              <p class="text-center" style="font-size:1vw;"><b><i>"Full Stack Web Development"</i></b></p></center>
-            
+            <br>
+            <center><br><img src="/images/user3.png" class="e" alt="Cinque Terre"></center>
           </div>
-          <br><br>
-          <div class="row justify-content-md-center">
-            <center><img src="/images/iconA.png" class="e" alt="Cinque Terre">
-              <p class="text-center" style="font-size:1vw;"><b><i>"Competitive Programming"</i></b></p></center>
-          </div>
-          <br><br>
-          <div class="row justify-content-md-center">
-            <center><img src="/images/iconC.png" class="e" alt="Cinque Terre">
-              <p class="text-center" style="font-size:1vw;"><b><i>"Machine Learning"</i></b></p></center>
-          </div>
-          
           <div class="row justify-content-md-center" id="second">
+            <button type="button" class="btn btn-outline-success" onclick='load(); return false;'>View Details</button>
           </div>
         </div>
 
-        <div class="col-10" >
-          <div class="row justify-content-md-center" id=third>
+        <div class="col-10">
+          <div class="row justify-content-md-center" id="third">
             <div class=col>
               <div class="d" style="max-width: 100%">
-                <div class="card-body">
-                 
-                   <img src="images/image1.jpg" alt="avatar">
-                   <br>
-                   <h3>
-                     Place To Showcase Your Skills
-                   </h3>
-                  <!--<p>Login ID: defunkt</p>
-
-                  <p>Followers : 1052</p>
-
-                  <p>Following: 422</p>
-
-                  <p>public Repo: 45</p>
-
-                  <p>git repo: 12</p> -->
-
-                  <script src="https://code.highcharts.com/highcharts.js"></script>
-                  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-                  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-                  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-                  <figure class="highcharts-figure">
-                    <div id="container"></div>
-                    
-                  </figure>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-          <br><br>
-          <div class="row justify-content-md-center" id=fourth>
-            <div class=col>
-              <div class="d" style="max-width: 100%">
-                <div class="card-body">
+                <div class="card-body" id="homePageContent">
+                  <div id="result"></div>
+                  <h4>GitHub Profile</h4>
                   <!-- <img src="" alt="avatar">
                   <p>Login ID: defunkt</p>
 
@@ -205,13 +166,48 @@
 
                   <figure class="highcharts-figure">
                     <div id="container"></div>
-                     
+                    <p class="highcharts-description">
+                      GitHub Profile
+                    </p>
                   </figure>
                 </div>
               </div>
 
             </div>
 
+          </div>
+          <br><br>
+          <div class="row justify-content-md-center" id="fourth">
+            <div class=col>
+              <div class="d" style="max-width: 100%">
+                <div class="card-body">
+                  <h4>Coding Profile</h4>
+                  <!-- <img src="" alt="avatar">
+                  <p>Login ID: defunkt</p>
+
+                  <p>Followers : 1052</p>
+
+                  <p>Following: 422</p>
+
+                  <p>public Repo: 45</p>
+
+                  <p>git repo: 12</p> -->
+
+                  <script src="https://code.highcharts.com/highcharts.js"></script>
+                  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+                  <figure class="highcharts-figure">
+                    <div id="container"></div>
+                    <p class="highcharts-description">
+                      Coding Profile
+                    </p>
+                  </figure>
+                </div>
+              </div>
+
+            </div>
           </div>
           
         </div>
@@ -232,9 +228,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+    <!-- <script src="./app2.js"></script> -->
+    <script src="./highChart.js"></script>
 </body>
-
-<!-- <script src="app.js"></script> -->
-<script src="highChart.js"></script>
-
 </html>

@@ -1,24 +1,21 @@
 {
-  "name": "mern_stack",
+  "name": "test_fullstack",
   "version": "1.0.0",
-  "description": "",
+  "description": "Welcome to the fullstack challenge part :",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Farhan",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "http": "0.0.1-security",
-    "mongodb": "^3.5.9",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.25",
-    "morgan": "^1.10.0",
     "node-localstorage": "^2.1.6",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "validation": "0.0.1"
+    "nodemon": "^2.0.4"
   }
 }

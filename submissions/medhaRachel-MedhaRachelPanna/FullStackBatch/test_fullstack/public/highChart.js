@@ -141,7 +141,9 @@ async function showSkill() {
   xhttp.send();
 }
 
- function showHome(){
+//showHome
+
+function showHome(){
   third.innerHTML=`  <div class="row justify-content-md-center" id=third>
   <div class=col>
     <div class="d" style="max-width: 100%">

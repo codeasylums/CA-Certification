@@ -1,37 +1,35 @@
-const express = require('express')
-const app = express()
-const morgan = require('morgan')
-const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
-const router = express.Router();
-const Register = require('./models/userModel')
+const express=require('express');
+const app=express();
+const bodyParser=require('body-parser');
+const monoose=require('mongoose');
 
-const userRoutes = require('./routes/users')
-const registerRoutes = require('./routes/register')
-const skillRoutes = require('./routes/skill')
+monoose.connect("mongodb+srv://Farhan:0651@cluster0.ugi57.mongodb.net/<dbname>?retryWrites=true&w=majority",{useNewUrlParser:true})
 
-mongoose.connect('mongodb+srv://medha:medha@cluster0.mr1wn.mongodb.net/<dbname>?retryWrites=true&w=majority', { useNewUrlParser: true })
-
-
-app.use(morgan('dev'))
-app.use(express.static("public"));
-
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json())
 
-app.use('/log', userRoutes);
-app.use('/reg', registerRoutes);
-app.use('/update', skillRoutes);
+app.use(express.static("public"));
 
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + 'index.html')
-});
+const coding=require('./routes/Coding');
+app.use('/coding',coding);
 
-app.get('/home', function(req, res) {
-    console.log("entered")
-    console.log(localStorage.getItem('userName'));
-    res.sendFile(__dirname + '/public/profile.html')
-});
+const development=require('./routes/Development');
+app.use('/development',development);
 
+const skill=require('./routes/skill');
+app.use('/update',skill);
 
-module.exports = app
+const login=require('./routes/login');
+app.use('/login',login);
+
+const log=require('./routes/users');
+app.use('/log',log);
+
+app.get('/',function(req,res){
+    res.sendFile(__dirname+'index.html');
+})
+
+app.listen(process.env.PORT || 8000,function(req,res)
+{
+    console.log("Server has started");
+})
