@@ -29,7 +29,7 @@ app.get('/',function(req,res){
     res.sendFile(__dirname+'index.html');
 })
 
-app.listen(8000,function(req,res)
+app.listen(process.env.PORT || 8000,function(req,res)
 {
     console.log("Server has started");
 })
