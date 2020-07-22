@@ -1,0 +1,24 @@
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="card card-body">
+        <h2 class="text-center">Update Your Details</h2><br>
+        <%- include ('./partials/messages'); %>
+
+        <form method="POST" action="/user/<%= name %>/update">
+          <input type="text" name="name" id="name" placeholder="<%= name %>" readonly class="form-control"><br>
+          <input type="email" name="email" id="emial" placeholder="<%= email %>" readonly class="form-control"><br>
+          <input type="text" name="College_Name" id="College_Name" placeholder="Enter Your College Name" class="form-control"><br>
+          <input type="text" name="CGPA" id="CGPA" placeholder="Enter Your Current CGPA" class="form-control"><br>
+          <button type="submit" class="btn btn-primary form-control" >Update</button><br>
+        </form>
+
+        
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+<br><br>
