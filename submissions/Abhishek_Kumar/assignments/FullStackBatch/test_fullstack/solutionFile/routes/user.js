@@ -86,10 +86,37 @@ router.post("/login", (req, res, next) => {
 });
 
 //Logout Handle
-router.get("/logout", ensureAuthenticated, (req, res) => {
+router.get("/logout", (req, res) => {
   req.logout();
   req.flash("success_msg", "You have Logged Out ");
-  res.redirect("login");
+  res.redirect("/user/login");
+});
+
+
+//User Profile
+// router.post("/:id/profile" , (req,res)=>{
+//   res.render("profile");
+// });
+
+router.get("/:id/:email/profile" , (req,res)=>{
+  const email= req.params.email ;
+  User.findOne({ email : email }).then((user) => {
+    // const name = user.name,
+    if (user) {
+      res.render("profile", {
+        name  : user.name,
+        email : user.email,
+      });
+    } else {
+      req.flash("error_msg", "User Not Found ");
+      res.redirect("/dashboard");
+    }
+});
+});
+
+//Update Account
+router.get(":email/update", (req,res)=>{
+  
 });
 
 module.exports = router;
