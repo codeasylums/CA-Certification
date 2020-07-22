@@ -6,5 +6,5 @@ Challenge taken - test_git, test_fullstack
 Deployment Links : 
 - Frontend -NA
 - Backend - https://github.com/venkykalyan/profile-searcher
-  hosting link-https://profile-searcher18.herokuapp.com (don't know why it is not working even after it is showing in heroku that Build succeeded)
+  hosting link-https://profile-searcher18.herokuapp.com (don't know why it is not working even after it is showing in heroku that Build succeeded &deployed to heroku)
 ```
