@@ -1,6 +1,6 @@
 Full Name - KURAGAYALA VENKATESH
 Email-ID - kv25900@gmail.com
-LinkedIn-ID - https://www.linkedin.com/in/yourLinkedInId
+LinkedIn-ID - http://linkedin.com/in/venky-kalyan-345b6b147
 Batch - FullStack
 Challenge taken - test_git, test_fullstack
 Deployment Links : 
